@@ -1,0 +1,16 @@
+name: HubCore
+version: 1.0.0
+main: shadow\Loader
+api: 5.0.0
+author: 404_Shad0w
+depend:
+  - QueueAPI
+  - QueryAPI
+
+permissions:
+  player.perms:
+    description: Permission to use player commands
+    default: true
+  admin.perms:
+    description: Permission to use admin commands
+    default: op
