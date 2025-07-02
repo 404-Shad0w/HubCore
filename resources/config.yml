@@ -20,3 +20,13 @@ modalities:
     status: "online"
     ip: "play.practice.com"
     port: 19132
+
+scoreboard:
+  title:
+    - "&gHUB"
+    - "&bHUB"
+    - "&dHUB"
+    - "&eHUB"
+  stri:
+    - "play.hub.sytes"
+    - "hub.tebex.io"
