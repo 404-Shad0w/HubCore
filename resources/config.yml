@@ -1,2 +1,22 @@
 join-msg: "&8[&a+&8] &7{player}"
 leave-msg: "&8[&c-&8] &7{player}"
+
+modalities:
+  hcf:
+    type: "hcf"
+    format: "&l&6HCF"
+    status: "online"
+    ip: "play.hcf.com"
+    port: 19132
+  kitmap:
+    name: "kitmap"
+    format: "&l&bKitMap"
+    status: "online"
+    ip: "play.kitmap.com"
+    port: 19132
+  practice:
+    name: "practice"
+    format: "&l&dPractice"
+    status: "online"
+    ip: "play.practice.com"
+    port: 19132
