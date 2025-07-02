@@ -8,6 +8,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\utils\TextFormat;
 use shadow\Loader;
+use shadow\utils\Inventories;
 use shadow\utils\Utils;
 
 class Events implements Listener
@@ -28,13 +29,21 @@ class Events implements Listener
         $event->setQuitMessage(TextFormat::colorize($leavemsg));
     }
 
+    /**
+     * @param PlayerInteractEvent $event
+     * @return void
+     */
     public function handleInteract(PlayerInteractEvent $event): void
     {
         $player = $event->getPlayer();
         if ($event->getItem()->getNamedTag()->getString('hub.items') === 'selector') {
+            Inventories::SelctorMenu($player);
             $event->cancel();
         } elseif ($event->getItem()->getNamedTag()->getString('hub.items') === 'debuff') {
             $event->cancel();
+            $player = $event->getPlayer();
+            $direction = $player->getDirectionVector()->normalize()->multiply(1.5);
+            $player->setMotion($direction->add(0, 1, 0));
         }
     }
 }
