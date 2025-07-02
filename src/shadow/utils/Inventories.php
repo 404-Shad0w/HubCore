@@ -50,7 +50,7 @@ class Inventories
                 return $transaction->discard();
             }
 
-            if ($status === "offline") {
+            if ($query["status"] === "offline") {
                 $player->sendMessage("§coffline mode");
                 return $transaction->discard();
             }
@@ -64,13 +64,13 @@ class Inventories
 
             if ($modalityKey !== "" && isset($modalities[$modalityKey])) {
                 $modality = $modalities[$modalityKey];
-                if ($modality["status"] === "online") {
+                if ($query["status"] === "online") {
                     Loader::getInstance()->getScheduler()->scheduleRepeatingTask(
                         new QueueTask($player, $modalityKey, $modality["ip"], $modality["port"]),
                         40
                     );
                     QueueAPI::add($player->getName(), $modalityKey);
-                } elseif ($modality["status"] === "whitelist" && $player->hasPermission($modalityKey."join")) {
+                } elseif ($query["status"] === "whitelist" && $player->hasPermission($modalityKey."join")) {
                     Loader::getInstance()->getScheduler()->scheduleRepeatingTask(
                         new QueueTask($player, $modalityKey, $modality["ip"], $modality["port"]),
                         40
