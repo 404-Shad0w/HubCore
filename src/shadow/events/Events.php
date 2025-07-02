@@ -2,6 +2,7 @@
 
 namespace shadow\events;
 
+use Cosmetics\Manager\CosmeticsManager;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\Listener;
@@ -23,6 +24,7 @@ class Events implements Listener
         $joinmsg = str_replace("{player}", $player->getName(), Loader::getInstance()->getConfig()->get('join-message'));
         $event->setJoinMessage(TextFormat::colorize($joinmsg));
         Scoreboard::send($player);
+        CosmeticsManager::getInstance()->applyCosmetics($player);
     }
 
     public function handleQuit(PlayerQuitEvent $event): void

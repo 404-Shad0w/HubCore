@@ -14,3 +14,15 @@ permissions:
   admin.perms:
     description: Permission to use admin commands
     default: op
+  cosmetics.command:
+    description: Allows the player to use the cosmetics command
+    default: true
+  cosmetics.cape:
+    description: Allows the player to equip a cape
+    default: true
+  cosmetics.wings:
+    description: Allows the player to equip wings
+    default: true
+  cosmetics.bandana:
+    description: Allows the player to equip a bandana
+    default: true

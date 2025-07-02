@@ -28,6 +28,22 @@ class Loader extends PluginBase{
         EntityFactory::getInstance()->register(NpcsEntity::class, function (World $world, CompoundTag $nbt): NpcsEntity {
             return new NpcsEntity(EntityDataHelper::parseLocation($nbt, $world), NpcsEntity::parseSkinNBT($nbt), $nbt);
         }, ['NpcsEntity']);
+
+        $baseDir = $this->getDataFolder() . "Cosmetics/";
+
+        $folders = [
+            $baseDir,
+            $baseDir . "capes/",
+            $baseDir . "wings/",
+            $baseDir . "trails/",
+            $baseDir . "players/",
+        ];
+
+        foreach ($folders as $folder) {
+            if (!is_dir($folder)) {
+                mkdir($folder, 0755, true);
+            }
+        }
     }
 
     /**
